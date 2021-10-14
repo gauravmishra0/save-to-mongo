@@ -1,7 +1,7 @@
 var express = require("express");
 const bodyParser = require("body-parser");
 var app = express();
-var port = 3001;
+const port = process.env.PORT || 3001;
 
 const { MongoClient } = require('mongodb');
 const uri = "mongodb+srv://admin:admin@cluster0.rukh0.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
