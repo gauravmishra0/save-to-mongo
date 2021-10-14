@@ -3,6 +3,13 @@ const bodyParser = require("body-parser");
 var app = express();
 const port = process.env.PORT || 3001;
 
+app.all('/*', function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "X-Requested-With, Content-Type, Accept");
+  res.header("Access-Control-Allow-Methods", "POST, GET");
+  next();
+});
+
 const { MongoClient } = require('mongodb');
 const uri = "mongodb+srv://admin:admin@cluster0.rukh0.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
